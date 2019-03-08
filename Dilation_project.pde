@@ -1,13 +1,14 @@
 int b=40; //size of 1 unit block
 
-int[] pts = {3,4, //point 1
-             8,5, //point 2
-             4,9};//point 3
-int[] cent = {1,3}; //Center
-int sf = 2; // Scale Factor
+int[] pts = {3,6, //point 1
+             3,3, //point 2
+             6,3};//point 3
+int[] cent = {1,1}; //Center
+int sf = 3; // Scale Factor
 
 int[] ops = {0,0,0,0,0,0}; //Outputs
 
+Grid grid = new Grid();
 
 void setup(){
     size(800,800);
@@ -18,7 +19,7 @@ void setup(){
 
 void draw(){
   noLoop();
-  grid();
+  grid.drawGrid();
   firsttri();
   center();
   sectri();
@@ -40,21 +41,6 @@ void sectri(){
   strokeWeight(2);
   noFill();
   triangle(xconv(ops[0]),yconv(ops[1]),xconv(ops[2]),yconv(ops[3]),xconv(ops[4]),yconv(ops[5]));
-  def();
-}
-
-void grid(){
-  int i;
-  for(i=0;i<50;i++){
-    line(0,i*b,800,i*b);
-    line(i*b,0,i*b,800);
-    fill(50);
-    text(i-1,i*b-1,785);
-    text(19-i,15,i*b+2);
-  }
-  strokeWeight(4);
-  line(40,0,40,800);
-  line(0,760,800,760);
   def();
 }
 
