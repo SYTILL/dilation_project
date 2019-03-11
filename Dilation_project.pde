@@ -16,7 +16,6 @@ void setup(){
     dilation();
 }
 
-
 void draw(){
   noLoop();
   grid.drawGrid();
@@ -25,19 +24,17 @@ void draw(){
   sectri();
 }
 
-
 int xconv(int x){return (x+1)*b;}
 int yconv(int y){return (19-y)*b;}
 
-
-void firsttri(){
+void firsttri(){ //input triangle
   strokeWeight(2);
   noFill();
   triangle(xconv(pts[0]),yconv(pts[1]),xconv(pts[2]),yconv(pts[3]),xconv(pts[4]),yconv(pts[5]));
   def();
 }
 
-void sectri(){
+void sectri(){  //output triangle
   strokeWeight(2);
   noFill();
   triangle(xconv(ops[0]),yconv(ops[1]),xconv(ops[2]),yconv(ops[3]),xconv(ops[4]),yconv(ops[5]));
@@ -50,12 +47,12 @@ void center(){
   def();
 }
 
-void def(){
+void def(){ //set to 0
  strokeWeight(0);
  fill(0);
 }
 
-void dilation(){
+void dilation(){ //get output
   int i;
   for(i=0;i<6;i++){
      ops[i]=(pts[i]-cent[(i+2)%2])*sf+cent[(i+2)%2];
